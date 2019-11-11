@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
 .App {
   text-align: center;
+  font-family: "Abril Fatface", cursive;
 }
 
 .App-logo {
@@ -19,4 +21,14 @@
 
 .App-link {
   color: #09d3ac;
+}
+.form-movie {
+  position: absolute;
+  top: 12.5%;
+  right: 25%;
+}
+.remove-form {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
