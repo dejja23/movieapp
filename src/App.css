@@ -32,3 +32,8 @@
   top: 0;
   right: 0;
 }
+.spinner-border {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

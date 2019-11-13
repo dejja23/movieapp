@@ -10,6 +10,10 @@ import fast from "./images/fast and furious.jpg";
 import emoji from "./images/emoji.jpg";
 import terminator from "./images/terminator.jpg";
 import AddMovie from "./components/addmovie";
+import Delaymovie from "./delaymovie";
+
+const Moviedelay = Delaymovie(MovieCard);
+
 let movies = [
   { title: "THE MATRIX", img: matrix, rating: 4 },
   { title: "THE DARK KNIGHT", img: batman, rating: 5 },
@@ -22,7 +26,8 @@ let movies = [
 class App extends Component {
   state = {
     movies,
-    formclosed: true
+    formclosed: true,
+    Loading: true
   };
   ratingsearch = rating => {
     console.log(rating, this.state.movies);
@@ -54,6 +59,12 @@ class App extends Component {
     this.setState({ formclosed: close });
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ Loading: false });
+    }, 3000);
+  }
+
   render() {
     return (
       <div className="App w-75 m-auto text-secondary">
@@ -63,7 +74,7 @@ class App extends Component {
           closed={close => this.closeform(close)}
         />
 
-        <MovieCard movies={this.state.movies} />
+        <Moviedelay Loading={this.state.Loading} movies={this.state.movies} />
         <AddMovie
           addmovie={(name, img, rating) => this.addmovie(name, img, rating)}
           closed={close => this.closeform(close)}
